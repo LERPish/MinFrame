@@ -1,0 +1,39 @@
+//Server side
+
+//To compile and run the server:
+$ go run main.go
+
+//To stop server:
+CTRL C
+
+//Client side
+
+//To interact with server getRoot (Port 3333):
+$ curl http://localhost:3333
+
+//To interact with server getHello (Port 3333):
+$ curl http://localhost:3333/hello
+
+//To use multiple servers, uncomment the code (may need some adjustments)
+//Then run:
+//Server 1:
+$ curl http://localhost:3333
+$ curl http://localhost:3333/hello
+//Server 2:
+$ curl http://localhost:4444
+$ curl http://localhost:4444/hello
+
+//To use query:
+$ curl 'http://localhost:3333?first=1&second='
+
+//To read Request Body:
+$ curl -X POST -d 'This is the body' 'http://localhost:3333?first=1&second='
+
+//To retrieve Form Data:
+$ curl -X POST -F 'myName=Sammy' 'http://localhost:3333/hello'
+
+//To respond with Headers and Status Code
+//BAD REQUEST
+$ curl -v -X POST 'http://localhost:3333/hello'
+//GOOD REQUEST
+$ curl -v -X POST -F 'myName=Sammy' 'http://localhost:3333/hello' 
